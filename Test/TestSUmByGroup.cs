@@ -7,7 +7,7 @@ using Assert = NUnit.Framework.Assert;
 
 namespace Test
 {
-    public class UnitTest1
+    public class TestSumByGroup
     {
         private static readonly List<Revenue> RevenuList=new List<Revenue>()
         {
