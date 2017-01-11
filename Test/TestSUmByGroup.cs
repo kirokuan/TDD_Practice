@@ -39,14 +39,16 @@ namespace Test
         [Test]
         public void RevenuGroupBy3()
         {
-            var group=RevenuList.SumByGroup(i => i.Cost, 3);
+            var dividBy = 3;
+            var group = RevenuList.SumByGroup(i => i.Cost, dividBy);
             Assert.AreEqual(_CostGroupBy3,group);
         }
 
         [Test]
         public void RevenuGroupBy4()
         {
-            var group = RevenuList.SumByGroup(i => i.Revenu, 4);
+            var dividBy = 4;
+            var group = RevenuList.SumByGroup(i => i.Revenu, dividBy);
             Assert.AreEqual(_RevenuGroupBy4, group);
         }
 
@@ -72,19 +74,19 @@ namespace Test
         }
         [TestCase(4)]
         [TestCase(int.MaxValue)]
-        public void DividByLargeNum(int devident)
+        public void DividByLargeNum(int divisor)
         {
-            var group = _TestObjList.SumByGroup(t => t.prop, devident);
+            var group = _TestObjList.SumByGroup(t => t.prop, divisor);
             Assert.AreEqual(_sumOfTestObj, group);
         }
 
         [TestCase(0)]
         [TestCase(-1)]
-        public void InvalidGroupCountThrowException(int count)
+        public void InvalidGroupCountThrowException(int divisor)
         {
             var ex=Assert.Catch<ArithmeticException>(() =>
             {
-                RevenuList.SumByGroup(t => t.Revenu, count);
+                RevenuList.SumByGroup(t => t.Revenu, divisor);
             });
             Assert.AreEqual("Can't devid by 0", ex.Message);
         }
