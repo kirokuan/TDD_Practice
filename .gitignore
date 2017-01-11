@@ -1,0 +1,8 @@
+**/.svn/*
+bin/*
+**/*.dll
+**/*.pdb
+**/node_modules/*
+**/PrecompiledWeb/*
+**/packages/**
+**/obj/Debug/**
